@@ -14,8 +14,8 @@
 Run the prebuilt image from GitHub Container Registry — no clone needed:
 
 ```bash
-mkdir ocr-everything && cd ocr-everything
-curl -O https://raw.githubusercontent.com/derKater86/ocr-everything/main/docker-compose.yml
+mkdir ocr-anything && cd ocr-anything
+curl -O https://raw.githubusercontent.com/derKater86/ocr-anything/main/docker-compose.yml
 docker compose pull
 docker compose up -d
 ```
@@ -39,16 +39,16 @@ Interactive Swagger docs: **http://localhost:5555/docs**
 
 ### Option A — Docker Compose (recommended)
 
-Use the prebuilt image from [GitHub Container Registry](https://github.com/derKater86/ocr-everything/pkgs/container/ocr-everything):
+Use the prebuilt image from [GitHub Container Registry](https://github.com/derKater86/ocr-anything/pkgs/container/ocr-anything):
 
 ```bash
-curl -O https://raw.githubusercontent.com/derKater86/ocr-everything/main/docker-compose.yml
+curl -O https://raw.githubusercontent.com/derKater86/ocr-anything/main/docker-compose.yml
 docker compose pull
 docker compose up -d
 ```
 
 The compose file:
-- pulls `ghcr.io/derkater86/ocr-everything:latest`
+- pulls `ghcr.io/derkater86/ocr-anything:latest`
 - exposes port **5555** on the host (mapped to container port `8000`)
 - adds a healthcheck against `/health`
 - restarts automatically unless explicitly stopped
@@ -70,8 +70,8 @@ docker compose down
 For development or customization, clone and build locally:
 
 ```bash
-git clone https://github.com/derKater86/ocr-everything.git
-cd ocr-everything
+git clone https://github.com/derKater86/ocr-anything.git
+cd ocr-anything
 docker compose up -d --build
 ```
 
@@ -80,7 +80,7 @@ This builds an image based on `python:3.12-slim` with:
 - `poppler-utils` (for PDF rendering)
 - the FastAPI app
 
-Because the compose file declares both `image:` and `build:`, `docker compose up --build` produces a local image tagged as `ghcr.io/derkater86/ocr-everything:latest` — `docker compose up` afterwards reuses it without pulling.
+Because the compose file declares both `image:` and `build:`, `docker compose up --build` produces a local image tagged as `ghcr.io/derkater86/ocr-anything:latest` — `docker compose up` afterwards reuses it without pulling.
 
 ### Changing the host port
 
