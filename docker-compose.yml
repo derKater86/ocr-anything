@@ -1,0 +1,12 @@
+services:
+  ocr-api:
+    container_name: ocr-anything
+    image: derKater86/ocr-everything
+    build: 
+    ports:
+      - "5555:8000"
+    volumes:
+      - ./app:/app/app
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
